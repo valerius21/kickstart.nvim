@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -419,6 +419,32 @@ require('lazy').setup({
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
+
+      -- NOTE: did not read until here
+      {
+        'christoomey/vim-tmux-navigator',
+        lazy = false,
+      },
+      -- NOTE: maybe use @folke implmenetation bc it can be faster
+      {
+        'kdheepak/lazygit.nvim',
+        cmd = {
+          'LazyGit',
+          'LazyGitConfig',
+          'LazyGitCurrentFile',
+          'LazyGitFilter',
+          'LazyGitFilterCurrentFile',
+        },
+        -- optional for floating window border decoration
+        dependencies = {
+          'nvim-lua/plenary.nvim',
+        },
+        -- setting the keybinding for LazyGit with 'keys' is recommended in
+        -- order to load the plugin when the command is run for the first time
+        keys = {
+          { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+        },
+      },
 
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
