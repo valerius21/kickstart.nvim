@@ -154,6 +154,27 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+  -- TODO: read help page
+  {
+    'stevearc/oil.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('oil').setup()
+      vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+    end,
+  },
+  -- TODO: read help page
+  {
+    'chrishrb/gx.nvim',
+    keys = { { 'gx', '<cmd>Browse<cr>', mode = { 'n', 'x' } } },
+    cmd = { 'Browse' },
+    init = function()
+      vim.g.netrw_nogx = 1
+    end,
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = true,
+    submodules = false,
+  },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
