@@ -111,6 +111,7 @@ vim.keymap.set('n', '<leader>-', '<C-w>s', { desc = 'Split window horizontally' 
 vim.keymap.set('n', '<leader>bd', '<cmd>quit<cr>', { desc = 'Close current window' })
 -- other
 vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', { desc = 'save the current file' })
+vim.keymap.set('n', '<leader>gg', '<cmd>FloatermNew --autoclose=2 --title=lazygit lazygit<cr>', { desc = 'Open LazyGit' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
