@@ -141,26 +141,6 @@ require('lazy').setup({
   -- TODO: put plugin configuration inside a seperate file
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   { 'numToStr/Comment.nvim', opts = {} }, -- "gc" to comment visual regions/lines
-  { -- file navigation / neotree alternative
-    'stevearc/oil.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    lazy = false,
-    config = function()
-      require('oil').setup()
-      vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-    end,
-  },
-  { -- allow for gx inside oil.nvim to open files in external applications
-    'chrishrb/gx.nvim',
-    keys = { { 'gx', '<cmd>Browse<cr>', mode = { 'n', 'x' } } },
-    cmd = { 'Browse' },
-    init = function()
-      vim.g.netrw_nogx = 1
-    end,
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = true,
-    submodules = false,
-  },
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
