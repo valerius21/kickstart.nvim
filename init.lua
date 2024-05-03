@@ -103,17 +103,6 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
--- windows
-vim.keymap.set('n', '<leader>wd', '<C-w>c', { desc = 'Close current window' })
-vim.keymap.set('n', '<leader>|', '<C-w>v', { desc = 'Split window vertically' })
-vim.keymap.set('n', '<leader>-', '<C-w>s', { desc = 'Split window horizontally' })
--- buffers
-vim.keymap.set('n', '<leader>bd', '<cmd>quit<cr>', { desc = 'Close current window' })
--- movement
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move half a page down' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move half a page down' })
--- other
-vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', { desc = 'save the current file' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -262,19 +251,6 @@ require('lazy').setup({
   {
     'christoomey/vim-tmux-navigator',
     lazy = false,
-  },
-  {
-    'folke/flash.nvim',
-    event = 'VeryLazy',
-    opts = {},
-    -- stylua: ignore
-    keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    },
   },
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -434,40 +410,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        gopls = {
-          settings = {
-            completeUnimported = true,
-            usePlaceholders = true,
-            gofumpt = true,
-            staticcheck = true,
-            analyses = {
-              fieldalignment = true,
-              nilness = true,
-              unusedparams = true,
-              unusedwrite = true,
-              useany = true,
-            },
-            codelenses = {
-              gc_details = false,
-              generate = true,
-              regenerate_cgo = true,
-              run_govulncheck = true,
-              test = true,
-              tidy = true,
-              upgrade_dependency = true,
-              vendor = true,
-            },
-            hints = {
-              assignVariableTypes = true,
-              compositeLiteralFields = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              functionTypeParameters = true,
-              parameterNames = true,
-              rangeVariableTypes = true,
-            },
-          },
-        },
+        -- gopls = {}
         pyright = {},
         rust_analyzer = {},
         biome = {},
@@ -509,7 +452,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'gofumpt',
+        -- 'gofumpt',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -554,13 +497,16 @@ require('lazy').setup({
         }
       end,
       formatters_by_ft = {
-        lua = { 'stylua' },
+        lua = { { 'stylua' } },
+        -- go = { 'goimports', 'gofumpt', 'gofmt' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
+        python = { 'isort', 'black' },
+
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        -- javascript = { { 'biome-check', 'biome', 'prettierd', 'prettier' } },
+        -- typescript = { { 'biome-check', 'biome', 'prettierd', 'prettier' } },
+        -- typescriptreact = { { 'biome-check', 'biome', 'prettierd', 'prettier' } },
       },
     },
   },
@@ -632,11 +578,11 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          -- ['<C-y>'] = cmp.mapping.confirm { select = true },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          --['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<CR>'] = cmp.mapping.confirm { select = true },
           --['<Tab>'] = cmp.mapping.select_next_item(),
           --['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
@@ -810,6 +756,9 @@ require('lazy').setup({
     },
   },
 })
+
+-- load custom configurations
+require 'custom.init'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
