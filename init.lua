@@ -109,6 +109,9 @@ vim.keymap.set('n', '<leader>|', '<C-w>v', { desc = 'Split window vertically' })
 vim.keymap.set('n', '<leader>-', '<C-w>s', { desc = 'Split window horizontally' })
 -- buffers
 vim.keymap.set('n', '<leader>bd', '<cmd>quit<cr>', { desc = 'Close current window' })
+-- movement
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move half a page down' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move half a page down' })
 -- other
 vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', { desc = 'save the current file' })
 
