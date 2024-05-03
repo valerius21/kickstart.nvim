@@ -134,24 +134,12 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+  -- TODO: put plugin configuration inside a seperate file
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-  {
-    -- TODO: read help page
+  { 'numToStr/Comment.nvim', opts = {} }, -- "gc" to comment visual regions/lines
+  { -- file navigation / neotree alternative
     'stevearc/oil.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     lazy = false,
@@ -160,8 +148,7 @@ require('lazy').setup({
       vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
     end,
   },
-
-  {
+  { -- allow for gx inside oil.nvim to open files in external applications
     'chrishrb/gx.nvim',
     keys = { { 'gx', '<cmd>Browse<cr>', mode = { 'n', 'x' } } },
     cmd = { 'Browse' },
@@ -172,12 +159,6 @@ require('lazy').setup({
     config = true,
     submodules = false,
   },
-
-  -- Here is a more advanced example where we pass configuration
-  -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
-  --    require('gitsigns').setup({ ... })
-  --
-  -- See `:help gitsigns` to understand what the configuration keys do
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
