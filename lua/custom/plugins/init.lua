@@ -2,11 +2,4 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {
-  {
-    'voldikss/vim-floaterm',
-    keys = {
-      { '<leader>gg', '<cmd>FloatermNew --autoclose=2 --title=lazygit lazygit<cr>', desc = 'Open LazyGit' },
-    },
-  },
-}
+return {}
