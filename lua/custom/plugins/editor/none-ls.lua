@@ -1,13 +1,14 @@
 return {
   {
     'nvimtools/none-ls.nvim',
-    ft = { 'go', 'typescript', 'typescriptreact', 'javascript', 'json' },
+    ft = { 'typescript', 'typescriptreact', 'javascript', 'json' },
     opts = function()
       local null_ls = require 'null-ls'
       local opts = {
         sources = {
-          null_ls.builtins.formatting.gofumpt,
-          null_ls.builtins.formatting.goimports_reviser,
+          -- Go
+          null_ls.builtins.formatting.golines,
+          -- Typscript with React
           null_ls.builtins.formatting.biome.with {
             args = {
               'check',
