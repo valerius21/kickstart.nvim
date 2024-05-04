@@ -2,7 +2,7 @@ return {
   { -- file navigation / neotree alternative
     'stevearc/oil.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    lazy = false,
+    event = 'VimEnter',
     keys = {
       { '-', '<CMD>Oil<CR>', desc = 'Open parent directory' },
     },

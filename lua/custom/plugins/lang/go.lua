@@ -65,7 +65,7 @@ return {
       opts.sources = vim.list_extend(opts.sources or {}, {
         nls.builtins.code_actions.gomodifytags,
         nls.builtins.code_actions.impl,
-        -- NOTE: conform is handling the formatting
+        -- NOTE: conform is handling the formatting, because its faster
       })
     end,
   },
