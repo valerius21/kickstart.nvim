@@ -67,6 +67,7 @@ return {
         nls.builtins.code_actions.impl,
         -- NOTE: conform is handling the formatting, because its faster
       })
+      return opts
     end,
   },
   {
