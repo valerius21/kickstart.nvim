@@ -90,4 +90,16 @@ return {
       },
     },
   },
+  {
+    'olexsmir/gopher.nvim',
+    ft = 'go',
+    keys = {
+      { 'gsj', '<cmd>GoTagAdd json<cr>', { desc = 'Add Go [s]truct [J]SON tags' } },
+      { '<leader>ci', '<cmd>GoIfErr<cr>', { desc = 'Generate [if] err' } },
+    },
+    opts = {},
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
 }
