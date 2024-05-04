@@ -7,5 +7,6 @@ return {
       { '-', '<CMD>Oil<CR>', desc = 'Open parent directory' },
     },
     opts = {},
+    -- TODO: make vim-tmux compatible
   },
 }
