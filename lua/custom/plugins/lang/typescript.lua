@@ -11,6 +11,17 @@ local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 return {
   -- NOTE: LSP config managed by init.lua
   {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    ft = file_types,
+    opts = {
+      settings = {
+        code_lens = 'all',
+        expose_as_code_action = { 'fix_all', 'add_missing_imports', 'remove_unused', 'remove_unused_imports' },
+      },
+    },
+  },
+  {
     'windwp/nvim-ts-autotag',
     ft = file_types,
     opts = {},
