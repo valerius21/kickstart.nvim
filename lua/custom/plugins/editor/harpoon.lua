@@ -15,14 +15,14 @@ return {
       end)
       vim.keymap.set('n', '<C-M-e>', function()
         harpoon.ui:toggle_quick_menu(harpoon:list())
-      end)
+      end, { desc = 'Open Harpoon Buffer' })
       -- Toggle previous & next buffers stored within Harpoon list
       vim.keymap.set('n', '<C-M-P>', function()
         harpoon:list():prev()
-      end)
+      end, { desc = 'Go to previous harpoon mark' })
       vim.keymap.set('n', '<C-M-N>', function()
         harpoon:list():next()
-      end)
+      end, { desc = 'Go to next Harpoon mark' })
 
       -- [[
       -- Telescope
@@ -48,7 +48,7 @@ return {
 
       vim.keymap.set('n', '<C-e>', function()
         toggle_telescope(harpoon:list())
-      end, { desc = 'Open harpoon window' })
+      end, { desc = 'Open Telescope harpoon window' })
     end,
   },
 }

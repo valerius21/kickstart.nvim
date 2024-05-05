@@ -20,3 +20,6 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move half a page down' })
 
 -- other
 vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', { desc = 'save the current file' })
+
+-- LSP actions
+vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'Rename Symbol' })
