@@ -6,7 +6,14 @@ return {
     keys = {
       { '-', '<CMD>Oil<CR>', desc = 'Open parent directory' },
     },
-    opts = {},
-    -- TODO: make vim-tmux compatible
+    opts = {
+      keymaps = {
+        -- deactivate conflicting keymaps with vim-tmux
+        ['<C-h>'] = false,
+        ['<C-j>'] = false,
+        ['<C-k>'] = false,
+        ['<C-l>'] = false,
+      },
+    },
   },
 }
