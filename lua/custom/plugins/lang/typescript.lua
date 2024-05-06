@@ -17,12 +17,16 @@ return {
   {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    ft = file_types,
+    ft = { 'typescript', 'typescriptreact' },
     opts = {
       settings = {
         code_lens = 'off',
         expose_as_code_action = { 'fix_all', 'add_missing_imports', 'remove_unused', 'remove_unused_imports' },
       },
+    },
+    -- TODO: move to autocommand BufWritePre
+    keys = {
+      { '<C-M-o>', '<cmd>TSToolsOrganizeImports<cr>', { desc = 'Organize the imports' } },
     },
   },
   {
