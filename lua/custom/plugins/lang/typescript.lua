@@ -9,14 +9,18 @@ local file_types = {
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
 return {
-  -- NOTE: LSP config managed by init.lua
+  {
+    'neovim/nvim-lspconfig',
+    ft = file_types,
+    enable = false,
+  },
   {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     ft = file_types,
     opts = {
       settings = {
-        code_lens = 'all',
+        code_lens = 'off',
         expose_as_code_action = { 'fix_all', 'add_missing_imports', 'remove_unused', 'remove_unused_imports' },
       },
     },

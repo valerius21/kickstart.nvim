@@ -13,14 +13,14 @@ return {
       vim.keymap.set('n', '<leader>a', function()
         harpoon:list():add()
       end)
-      vim.keymap.set('n', '<C-M-e>', function()
+      vim.keymap.set('n', '<C-S-e>', function()
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end, { desc = 'Open Harpoon Buffer' })
       -- Toggle previous & next buffers stored within Harpoon list
-      vim.keymap.set('n', '<C-M-P>', function()
+      vim.keymap.set('n', '<C-S-P>', function()
         harpoon:list():prev()
       end, { desc = 'Go to previous harpoon mark' })
-      vim.keymap.set('n', '<C-M-N>', function()
+      vim.keymap.set('n', '<C-S-N>', function()
         harpoon:list():next()
       end, { desc = 'Go to next Harpoon mark' })
 
