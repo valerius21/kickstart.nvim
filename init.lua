@@ -512,18 +512,18 @@ require('lazy').setup({
       },
     },
   },
-  { -- Copilot
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    opts = {},
-  },
-  {
-    'zbirenbaum/copilot-cmp',
-    config = function()
-      require('copilot_cmp').setup()
-    end,
-  },
+  -- { -- Copilot
+  --   'zbirenbaum/copilot.lua',
+  --   cmd = 'Copilot',
+  --   event = 'InsertEnter',
+  --   opts = {},
+  -- },
+  -- {
+  --   'zbirenbaum/copilot-cmp',
+  --   config = function()
+  --     require('copilot_cmp').setup()
+  --   end,
+  -- },
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -630,8 +630,8 @@ require('lazy').setup({
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
-          -- Copilot Source
-          { name = 'copilot', group_index = 2 },
+          -- -- Copilot Source
+          -- { name = 'copilot', group_index = 2 },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
@@ -641,7 +641,7 @@ require('lazy').setup({
             before = require('tailwind-tools.cmp').lspkind_format,
             mode = 'symbol',
             max_width = 50,
-            symbol_map = { Copilot = '' },
+            -- symbol_map = { Copilot = '' },
           },
         },
       }
