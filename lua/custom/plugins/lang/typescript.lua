@@ -6,8 +6,6 @@ local file_types = {
   'typescriptreact',
 }
 
-local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-
 return {
   {
     'neovim/nvim-lspconfig',
@@ -24,7 +22,7 @@ return {
         expose_as_code_action = { 'fix_all', 'add_missing_imports', 'remove_unused', 'remove_unused_imports' },
       },
     },
-    -- TODO: move to autocommand BufWritePre
+    -- NOTE: should normally be handled by biome or something else on save
     keys = {
       { '<C-M-o>', '<cmd>TSToolsOrganizeImports<cr>', { desc = 'Organize the imports' } },
     },

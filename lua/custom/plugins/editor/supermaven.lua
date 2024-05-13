@@ -1,5 +1,5 @@
 return {
-  {
+  { -- NOTE: While I do like this plugin, it is still in early development
     'supermaven-inc/supermaven-nvim',
     config = function()
       require('supermaven-nvim').setup {
