@@ -6,6 +6,7 @@ return {
         keymaps = {
           accept_suggestion = '<C-j>',
           clear_suggestion = '<C-]>',
+          accept_word = '<C-y>',
         },
         ignore_filetypes = { cpp = true },
         color = {
