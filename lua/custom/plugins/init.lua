@@ -12,7 +12,7 @@ vim.keymap.set('n', '<leader>|', '<C-w>v', { desc = 'Split window vertically' })
 vim.keymap.set('n', '<leader>-', '<C-w>s', { desc = 'Split window horizontally' })
 
 -- buffers
-vim.keymap.set('n', '<leader>bd', '<cmd>quit<cr>', { desc = 'Close current window' })
+-- vim.keymap.set('n', '<leader>bd', '<cmd>quit<cr>', { desc = 'Close current window' })
 
 -- movement
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move half a page down' })
