@@ -55,7 +55,7 @@ return {
           { section = 'startup' },
           {
             section = 'terminal',
-            cmd = 'ascii-image-converter https://github.com/valerius21.png -C -c',
+            cmd = 'chafa ~/.config/nvim/valerius21.png --format symbols --symbols vhalf --size 50x50; sleep .1',
             random = 10,
             pane = 2,
             indent = 4,
