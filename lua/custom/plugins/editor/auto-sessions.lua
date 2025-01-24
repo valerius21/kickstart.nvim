@@ -1,3 +1,4 @@
+-- NOTE: maybe try persistence.nvim
 return {
   {
     'rmagatti/auto-session',
