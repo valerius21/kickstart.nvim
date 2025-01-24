@@ -1,4 +1,3 @@
--- NOTE: take a look at https://github.com/folke/snacks.nvim/blob/main/docs/terminal.md in the future
 return {
   {
     'rmagatti/auto-session',
@@ -10,7 +9,9 @@ return {
       'rmagatti/auto-session',
       'nvim-telescope/telescope.nvim',
     },
-    opts = {},
+    opts = {
+      supressed_dirs = { '~/', '~/Downloads', '/' },
+    },
     keys = {
       {
         '<leader>sS',
