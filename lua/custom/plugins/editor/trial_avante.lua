@@ -12,7 +12,7 @@ return {
           __inherited_from = 'openai',
           api_key_name = 'DEEPSEEK_API_KEY',
           endpoint = 'https://api.deepseek.com',
-          model = 'deepseek-coder',
+          model = 'deepseek-reasoner',
         },
         ollama = {
           __inherited_from = 'openai',
