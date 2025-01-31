@@ -29,6 +29,7 @@ return {
     config = function()
       local null_ls = require 'null-ls'
       local gopher = require 'gopher'
+      local tag_options = { 'xml', 'json', 'yaml', 'proto' }
 
       local function get_struct_predicate(node)
         while node do
@@ -44,13 +45,13 @@ return {
         return false
       end
 
-      local function create_tag_picker(title, tag_action)
+      local function create_tag_picker(title, tags, tag_action)
         return function()
           require('telescope.pickers')
             .new({}, {
               prompt_title = title,
               finder = require('telescope.finders').new_table {
-                results = { 'xml', 'json', 'yaml' },
+                results = tags,
               },
               sorter = require('telescope.config').values.generic_sorter {},
               attach_mappings = function(prompt_bufnr)
@@ -76,8 +77,8 @@ return {
               return {}
             end
             return {
-              { title = 'Add Tags', action = create_tag_picker('Select tag type', gopher.tags.add) },
-              { title = 'Remove Tags', action = create_tag_picker('Select tag type to remove', gopher.tags.rm) },
+              { title = 'Add Tags', action = create_tag_picker('Select tag type', tag_options, gopher.tags.add) },
+              { title = 'Remove Tags', action = create_tag_picker('Select tag type to remove', tag_options, gopher.tags.rm) },
             }
           end,
         },
