@@ -672,6 +672,7 @@ require('lazy').setup({
         'golines',
         'gofumpt',
         'goimports-reviser',
+        'gomodifytags',
         -- Python
         'isort',
         'black',
