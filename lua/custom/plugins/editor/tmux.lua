@@ -1,6 +1,7 @@
 return {
   {
-    'alexghergh/nvim-tmux-navigation',
+    -- using a fork for faster window switching
+    'srithon/nvim-tmux-navigation',
     lazy = false,
     config = function()
       require('nvim-tmux-navigation').setup {
