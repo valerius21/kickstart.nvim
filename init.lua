@@ -676,6 +676,8 @@ require('lazy').setup({
         -- Python
         'isort',
         'black',
+        -- etc
+        'markdownlint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
