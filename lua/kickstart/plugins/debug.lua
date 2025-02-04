@@ -68,6 +68,20 @@ return {
       end,
       desc = 'Debug: Set Breakpoint',
     },
+    -- {
+    --   '<leader>dl',
+    --   function()
+    --     require('dap').list_breakpoints()
+    --   end,
+    --   desc = 'Debug: List Breakpoints',
+    -- },
+    {
+      '<leader>dc',
+      function()
+        require('dap').clear_breakpoints()
+      end,
+      desc = 'Debug: Clear Breakpoints',
+    },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
       '<F7>',
@@ -94,7 +108,9 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
+        -- options: https://github.com/jay-babu/mason-nvim-dap.nvim/blob/main/lua/mason-nvim-dap/mappings/source.lua
         'delve',
+        'python',
       },
     }
 

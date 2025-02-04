@@ -2,7 +2,17 @@
 return {
   {
     'rmagatti/auto-session',
-    opts = {},
+    lazy = false,
+    ---@module "auto-session"
+    ---@type AutoSession.Config
+    opts = {
+      no_restore_cmds = {
+        function()
+          -- load if there's no session
+          require 'oil'
+        end,
+      },
+    },
   },
   {
     'rmagatti/session-lens',
